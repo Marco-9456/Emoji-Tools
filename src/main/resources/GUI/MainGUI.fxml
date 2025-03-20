@@ -24,41 +24,69 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<BorderPane prefHeight="425" prefWidth="400" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.mitchtalmadge.emojitools.gui.MainController">
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.Color?>
+
+<BorderPane prefHeight="500" prefWidth="600" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mitchtalmadge.emojitools.gui.MainController">
     <top>
-        <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
-            <padding>
-                <Insets bottom="5.0" top="5.0"/>
-            </padding>
-            <Label fx:id="headerLabel" alignment="CENTER" text="Emoji Tools Vx.x">
+        <VBox alignment="CENTER" style="-fx-background-color: #2196F3; -fx-padding: 20px;">
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color opacity="0.2" />
+                    </color>
+                </DropShadow>
+            </effect>
+            <Label fx:id="headerLabel" alignment="CENTER" text="Emoji Tools Vx.x" textFill="WHITE">
                 <font>
-                    <Font size="21.0"/>
+                    <Font name="System Bold" size="24.0"/>
                 </font>
             </Label>
-            <Label fx:id="copyrightLabel" onMouseClicked="#onCopyrightLabelFired"
-                   text="Copyright 2015 - 2019 Mitch Talmadge (https://MitchTalmadge.com/)" underline="true">
+            <Label fx:id="copyrightLabel" onMouseClicked="#onCopyrightLabelFired" 
+                   text="Copyright 2015 - 2019 Mitch Talmadge (https://MitchTalmadge.com/)" 
+                   textFill="WHITE" underline="true">
                 <font>
                     <Font name="System Italic" size="12.0"/>
                 </font>
                 <cursor>
                     <Cursor fx:constant="HAND"/>
                 </cursor>
+                <VBox.margin>
+                    <Insets top="5.0" />
+                </VBox.margin>
             </Label>
         </VBox>
     </top>
     <center>
-        <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" styleClass="floating"
-                 tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-        </TabPane>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20" />
+            </padding>
+            <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" 
+                     tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER"
+                     style="-fx-tab-min-width: 120px; -fx-tab-max-width: 120px; -fx-tab-min-height: 40px;">
+                <effect>
+                    <DropShadow>
+                        <color>
+                            <Color opacity="0.1" />
+                        </color>
+                    </DropShadow>
+                </effect>
+            </TabPane>
+        </VBox>
     </center>
     <bottom>
-        <Label fx:id="donationLabel" onMouseClicked="#onDonateLabelFired"
-               text="If these tools help you, please consider donating (Click here). Thank you!" underline="true"
-               BorderPane.alignment="CENTER">
-            <cursor>
-                <Cursor fx:constant="HAND"/>
-            </cursor>
-        </Label>
+        <HBox alignment="CENTER" style="-fx-padding: 15px; -fx-background-color: #EEEEEE;">
+            <Label fx:id="donationLabel" onMouseClicked="#onDonateLabelFired"
+                   text="If these tools help you, please consider donating (Click here). Thank you!" 
+                   underline="true" BorderPane.alignment="CENTER">
+                <font>
+                    <Font size="13.0"/>
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND"/>
+                </cursor>
+            </Label>
+        </HBox>
     </bottom>
 </BorderPane>
